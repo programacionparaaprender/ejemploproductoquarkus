@@ -83,3 +83,31 @@ http://localhost:8765/Product.html
 
 ### ubicación de swagger
 http://localhost:8765/q/swaggerui/
+
+## ruta de comando
+https://github.com/agoncal/agoncal-course-quarkus-starting/blob/master/bootstrap.sh
+
+```shell script
+mvn -U io.quarkus:quarkus-maven-plugin:create \
+-DprojectGroupId=org.agoncal.quarkus.starting \
+-DprojectArtifactId=rest-book \
+-DclassName="org.agoncal.quarkus.starting.BookResource" \
+-Dpath="/api/books" \
+-Dextensions="resteasy-jsonb" 
+```
+
+```shell script
+mvn -U io.quarkus:quarkus-maven-plugin:create \
+-DprojectGroupId=org.programacionparaaprender.quarkus.starting \
+-DprojectArtifactId=rest-book \
+-DclassName="org.programacionparaaprender.quarkus.starting.BookResource" \
+-Dpath="/api/books" \
+-Dextensions="resteasy-jsonb" 
+```
+
+
+```shell script
+systemctl status docker
+docker ps -a
+docker image ls
+```
