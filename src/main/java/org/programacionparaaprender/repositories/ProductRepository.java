@@ -25,6 +25,15 @@ public class ProductRepository {
     }
 
     @Transactional
+    public Product getProduct(String id){
+        String cadena;
+        cadena = String.format("select p from Product p where id=%s", id);
+        List<Product> products = em.createQuery(cadena).getResultList();
+        Product product = products.get(0);
+        return product;
+    }
+
+    @Transactional
     public List<Product> listProduct(){
         List<Product> products = em.createQuery("select p from Product p").getResultList();
         return products;

@@ -5,12 +5,9 @@ import org.programacionparaaprender.repositories.ProductRepository;
 
 import java.util.*;
 
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.inject.Inject;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
@@ -19,8 +16,26 @@ import jakarta.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ExampleResource {
 
+    @ConfigProperty(name="greeting")
+	private String greeting;
+
 	@Inject
     ProductRepository pr;
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("custom/{name}")
+    public String customHello(@PathParam("name") String name) {
+    	return greeting + " " + name + " how are you doing?";
+    }
+
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    @GET
+    @Path("obtener/{id}")
+    public Product obtener(final String id){
+        return pr.getProduct(id);
+    }
 
     @GET
     public List<Product> list() {
@@ -28,12 +43,16 @@ public class ExampleResource {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response add(Product p) {
         pr.createdProduct(p);
         return Response.ok().build();
     }
 
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response delete(Product p) {
        pr.deleteProduct(p);
         return Response.ok().build();
