@@ -38,6 +38,7 @@ public class ExampleResource {
     }
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Product> list() {
         return pr.listProduct();
     }

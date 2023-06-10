@@ -111,3 +111,8 @@ systemctl status docker
 docker ps -a
 docker image ls
 ```
+
+### rutas
+>- http://localhost:8765/product/
+>- http://localhost:8765/product/obtener/1
+>- http://localhost:8765/product/custom/Luis
