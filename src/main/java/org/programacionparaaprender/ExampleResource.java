@@ -33,7 +33,7 @@ public class ExampleResource {
     @Produces(MediaType.APPLICATION_JSON)
     @GET
     @Path("obtener/{id}")
-    public Product obtener(final String id){
+    public Product obtener(@PathParam("id") final String id){
         return pr.getProduct(id);
     }
 
