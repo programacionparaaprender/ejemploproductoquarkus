@@ -99,9 +99,9 @@ mvn -U io.quarkus:quarkus-maven-plugin:create \
 ```shell script
 mvn -U io.quarkus:quarkus-maven-plugin:create \
 -DprojectGroupId=org.programacionparaaprender.quarkus.starting \
--DprojectArtifactId=rest-book \
+-DprojectArtifactId=rest-product \
 -DclassName="org.programacionparaaprender.quarkus.starting.BookResource" \
--Dpath="/api/books" \
+-Dpath="/product" \
 -Dextensions="resteasy-jsonb" 
 ```
 

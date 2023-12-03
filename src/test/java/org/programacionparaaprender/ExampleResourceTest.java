@@ -8,14 +8,14 @@ import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 public class ExampleResourceTest {
-/* 
+
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/product")
+          .when().get("/product/custom/Ejemplo")
           .then()
              .statusCode(200)
-             .body(is("Hello from RESTEasy Reactive"));
+             .body(is("Hello Dear: Ejemplo how are you doing?"));
     }
-*/
+
 }
